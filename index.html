@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pixelnest — Premium Web Agency</title>
+  <meta name="description" content="Pixelnest is a premium web design & development agency. We build modern websites, landing pages, UI/UX and branding for businesses that want to stand out." />
+  <meta name="keywords" content="web design agency India, website development, UI UX design, landing page design, branding, SEO, Pixelnest" />
+  <meta name="author" content="Pixelnest" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / WhatsApp / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pixelnest.in/" />
+  <meta property="og:title" content="Pixelnest — Premium Web Design & Development Agency" />
+  <meta property="og:description" content="We build modern websites and digital experiences for brands that demand to be remembered. UI/UX, Landing Pages, Branding & more." />
+  <meta property="og:image" content="https://pixelnest.in/og-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pixelnest — Premium Web Design & Development Agency" />
+  <meta name="twitter:description" content="We build modern websites and digital experiences for brands that demand to be remembered." />
+  <meta name="twitter:image" content="https://pixelnest.in/og-image.png" />
+
+  <!-- Theme color (browser tab color on mobile) -->
+  <meta name="theme-color" content="#7c3aed" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+
+
+  <!-- VanillaTilt -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%237c3aed'/><text y='.9em' font-size='65' font-family='Arial' font-weight='bold' fill='white' x='12'>Px</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- Loading Screen -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">
+        <span class="loader-px">Pixel</span><span class="loader-nest">nest</span>
+      </div>
+      <div class="loader-bar-wrap">
+        <div class="loader-bar" id="loaderBar"></div>
+      </div>
+      <div class="loader-count" id="loaderCount">0</div>
+    </div>
+  </div>
+
+  <!-- Mouse Glow -->
+  <div class="mouse-glow" id="mouseGlow"></div>
+
+  <!-- ═══════════════════════════ NAV ═══════════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="logo-px">Pixel</span><span class="logo-nest">nest</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#projects" class="nav-link">Work</a></li>
+        <li><a href="#process" class="nav-link">Process</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta magnetic mob-close">
+        <span>Start Project</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="#about" class="mob-link">About</a></li>
+        <li><a href="#services" class="mob-link">Services</a></li>
+        <li><a href="#projects" class="mob-link">Work</a></li>
+        <li><a href="#process" class="mob-link">Process</a></li>
+        <li><a href="#contact" class="mob-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+  <section class="hero" id="hero">
+    <canvas class="hero-canvas" id="heroCanvas"></canvas>
+    <div class="hero-grid"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>Creative Digital Agency</span>
+      </div>
+      <h1 class="hero-headline">
+        <span class="h-line reveal-line">We Build Digital</span>
+        <span class="h-line reveal-line h-gradient">Experiences</span>
+        <span class="h-line reveal-line">That Feel <em>Premium.</em></span>
+      </h1>
+      <p class="hero-sub">
+        Pixelnest creates modern websites and digital experiences<br class="d-break" />
+        for brands that demand to be remembered.
+      </p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn btn-primary magnetic">
+          <span class="btn-inner">View Projects</span>
+          <span class="btn-glow"></span>
+        </a>
+        <a href="#contact" class="btn btn-ghost magnetic">
+          <span class="btn-inner">Start a Project →</span>
+        </a>
+      </div>
+      <div class="hero-scroll-cue">
+        <div class="scroll-line"></div>
+        <span>Scroll to explore</span>
+      </div>
+    </div>
+
+    <div class="hero-marquee-wrap">
+      <div class="hero-marquee">
+        <span>Website Design</span><span class="sep">✦</span>
+        <span>UI/UX Design</span><span class="sep">✦</span>
+        <span>Branding</span><span class="sep">✦</span>
+        <span>Web Apps</span><span class="sep">✦</span>
+        <span>Performance Optimization</span><span class="sep">✦</span>
+        <span>SEO</span><span class="sep">✦</span>
+        <span>Landing Pages</span><span class="sep">✦</span>
+        <span>Website Design</span><span class="sep">✦</span>
+        <span>UI/UX Design</span><span class="sep">✦</span>
+        <span>Branding</span><span class="sep">✦</span>
+        <span>Web Apps</span><span class="sep">✦</span>
+        <span>Performance Optimization</span><span class="sep">✦</span>
+        <span>SEO</span><span class="sep">✦</span>
+        <span>Landing Pages</span><span class="sep">✦</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ ABOUT ═══════════════════════════ -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-left">
+          <div class="section-tag reveal-up">About Pixelnest</div>
+          <h2 class="section-title reveal-up">
+            A studio obsessed with<br /><span class="grad-text">craft & pixel precision.</span>
+          </h2>
+          <p class="about-desc reveal-up">
+            We are a tight-knit creative agency built on one obsession — making the web more beautiful. Every project we ship is a statement of intent: that good design and great technology aren't competing forces. They're the same thing.
+          </p>
+
+        </div>
+        <div class="about-right">
+          <div class="stats-grid">
+            <div class="stat-card glass reveal-up" data-tilt data-tilt-max="8" data-tilt-scale="1.02">
+              <div class="stat-num" data-count="20">0</div>
+              <div class="stat-label">Projects Delivered</div>
+              <div class="stat-glow"></div>
+            </div>
+            <div class="stat-card glass reveal-up" data-tilt data-tilt-max="8" data-tilt-scale="1.02">
+              <div class="stat-num" data-count="100">0</div>
+              <div class="stat-suffix">%</div>
+              <div class="stat-label">Client Satisfaction</div>
+              <div class="stat-glow"></div>
+            </div>
+            <div class="stat-card glass reveal-up" data-tilt data-tilt-max="8" data-tilt-scale="1.02">
+              <div class="stat-num" data-count="3">0</div>
+              <div class="stat-label">Expert Co-Founders</div>
+              <div class="stat-glow"></div>
+            </div>
+            <div class="stat-card glass reveal-up" data-tilt data-tilt-max="8" data-tilt-scale="1.02">
+              <div class="stat-num" data-count="8">0</div>
+              <div class="stat-label">Core Services</div>
+              <div class="stat-glow"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ SERVICES ═══════════════════════════ -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-tag reveal-up">What We Do</div>
+        <h2 class="section-title reveal-up">Services built for<br /><span class="grad-text">modern brands.</span></h2>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card glass reveal-up" data-tilt data-tilt-max="6">
+          <div class="service-icon">
+            <svg viewBox="0 0 32 32" fill="none"><rect x="2" y="6" width="28" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M2 12h28" stroke="currentColor" stroke-width="1.5"/><circle cx="6" cy="9" r="1" fill="currentColor"/><circle cx="10" cy="9" r="1" fill="currentColor"/></svg>
+          </div>
+          <h3>Website Design</h3>
+          <p>Visually stunning, award-worthy websites tailored to your brand identity.</p>
+          <div class="service-arrow">→</div>
+          <div class="service-glow"></div>
+        </div>
+
+        <div class="service-card glass reveal-up" data-tilt data-tilt-max="6">
+          <div class="service-icon">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M4 8h24M4 16h16M4 24h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="26" cy="22" r="5" stroke="currentColor" stroke-width="1.5"/><path d="M29.5 25.5l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Business Websites</h3>
+          <p>Full-featured business sites that convert visitors into loyal customers.</p>
+          <div class="service-arrow">→</div>
+          <div class="service-glow"></div>
+        </div>
+
+        <div class="service-card glass reveal-up" data-tilt data-tilt-max="6">
+          <div class="service-icon">
+            <svg viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="24" height="24" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M10 16h12M16 10v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Landing Pages</h3>
+          <p>High-converting landing pages designed to drive action and growth.</p>
+          <div class="service-arrow">→</div>
+          <div class="service-glow"></div>
+        </div>
+
+        <div class="service-card glass reveal-up" data-tilt data-tilt-max="6">
+          <div class="service-icon">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M6 24l4-8 4 4 4-6 4 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="5" width="10" height="8" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <h3>UI/UX Design</h3>
+          <p>Intuitive user interfaces and experiences that feel magical to use.</p>
+          <div class="service-arrow">→</div>
+          <div class="service-glow"></div>
+        </div>
+
+        <div class="service-card glass reveal-up" data-tilt data-tilt-max="6">
+          <div class="service-icon">
+            <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M16 4v4M16 24v4M4 16h4M24 16h4M7 7l3 3M22 22l3 3M7 25l3-3M22 10l3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Branding</h3>
+          <p>Visual identities that tell your story before you say a word.</p>
+          <div class="service-arrow">→</div>
+          <div class="service-glow"></div>
+        </div>
+
+        <div class="service-card glass reveal-up" data-tilt data-tilt-max="6">
+          <div class="service-icon">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M12 20s1-2 4-2 4 2 4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="16" r="11" stroke="currentColor" stroke-width="1.5"/><path d="M16 5C16 5 11 8 11 16s5 11 5 11M16 5c0 0 5 3 5 11s-5 11-5 11M5 16h22" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <h3>SEO Friendly</h3>
+          <p>Technically optimised websites that rank, load fast, and get discovered.</p>
+          <div class="service-arrow">→</div>
+          <div class="service-glow"></div>
+        </div>
+
+        <div class="service-card glass reveal-up" data-tilt data-tilt-max="6">
+          <div class="service-icon">
+            <svg viewBox="0 0 32 32" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="13" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <h3>Responsive Dev</h3>
+          <p>Pixel-perfect across every screen — mobile, tablet, desktop and beyond.</p>
+          <div class="service-arrow">→</div>
+          <div class="service-glow"></div>
+        </div>
+
+        <div class="service-card glass reveal-up" data-tilt data-tilt-max="6">
+          <div class="service-icon">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M16 4l2.4 7.4H26l-6.2 4.5 2.4 7.4L16 19l-6.2 4.3 2.4-7.4L6 11.4h7.6L16 4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Performance</h3>
+          <p>Blazing-fast sites with optimized assets, clean code, and top Lighthouse scores.</p>
+          <div class="service-arrow">→</div>
+          <div class="service-glow"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ PROJECTS ═══════════════════════════ -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-tag reveal-up">Featured Work</div>
+        <h2 class="section-title reveal-up">Projects that<br /><span class="grad-text">speak for themselves.</span></h2>
+      </div>
+
+      <div class="projects-list">
+
+        <!-- Project 1 -->
+        <div class="project-card reveal-up" data-tilt data-tilt-max="4" data-tilt-scale="1.01">
+          <div class="project-num">01</div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span>Web Design</span><span>UI/UX</span><span>E-Commerce</span>
+            </div>
+            <h3 class="project-title">Flower Factory</h3>
+            <p class="project-desc">Aesthetic flower shop website with elegant UI and a silky-smooth browsing experience. Built to make every bloom feel luxurious.</p>
+            <a href="https://arushjain3643.github.io/flower_factory/" target="_blank" rel="noopener" class="project-link magnetic">
+              <span>Visit Website</span>
+              <svg viewBox="0 0 20 20" fill="none"><path d="M4 16L16 4M16 4H8M16 4v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+          <div class="project-preview">
+            <div class="project-screen">
+              <div class="screen-bar">
+                <span></span><span></span><span></span>
+                <div class="screen-url">arushjain3643.github.io/flower_factory</div>
+              </div>
+              <div class="screen-body project-screen-1">
+                <div class="mock-nav-bar"><div class="mock-nav-logo ff-logo"></div><div class="mock-nav-links"><span></span><span></span><span></span></div></div>
+                <div class="mock-hero ff-hero">
+                  <div class="mock-badge ff-badge"></div>
+                  <div class="mock-h1 ff-h1"></div>
+                  <div class="mock-h2 ff-h2"></div>
+                  <div class="mock-btn ff-btn"></div>
+                </div>
+                <div class="mock-cards">
+                  <div class="mock-card ff-card1"><div class="mock-card-img"></div><div class="mock-card-text"><div></div><div></div></div></div>
+                  <div class="mock-card ff-card2"><div class="mock-card-img"></div><div class="mock-card-text"><div></div><div></div></div></div>
+                  <div class="mock-card ff-card3"><div class="mock-card-img"></div><div class="mock-card-text"><div></div><div></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="project-glow"></div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card project-card-r reveal-up" data-tilt data-tilt-max="4" data-tilt-scale="1.01">
+          <div class="project-num">02</div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span>Business Website</span><span>Branding</span><span>SEO</span>
+            </div>
+            <h3 class="project-title">ClearSip RO</h3>
+            <p class="project-desc">Modern business website for a water purification brand — clean, professional, and built to generate leads at scale.</p>
+            <a href="https://www.clearsipro.in" target="_blank" rel="noopener" class="project-link magnetic">
+              <span>Visit Website</span>
+              <svg viewBox="0 0 20 20" fill="none"><path d="M4 16L16 4M16 4H8M16 4v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+          <div class="project-preview">
+            <div class="project-screen">
+              <div class="screen-bar">
+                <span></span><span></span><span></span>
+                <div class="screen-url">www.clearsipro.in</div>
+              </div>
+              <div class="screen-body project-screen-2">
+                <div class="mock-nav-bar cs-nav"><div class="mock-nav-logo cs-logo"></div><div class="mock-nav-links"><span></span><span></span><span></span></div><div class="cs-nav-btn"></div></div>
+                <div class="mock-hero cs-hero">
+                  <div class="cs-hero-left">
+                    <div class="mock-tag cs-tag"></div>
+                    <div class="mock-h1 cs-h1"></div>
+                    <div class="mock-h2 cs-h2"></div>
+                    <div class="mock-h2 cs-h3"></div>
+                    <div class="cs-btns"><div class="cs-btn1"></div><div class="cs-btn2"></div></div>
+                  </div>
+                  <div class="cs-hero-right">
+                    <div class="cs-product"></div>
+                    <div class="cs-glow-ring"></div>
+                  </div>
+                </div>
+                <div class="cs-stats"><div class="cs-stat"></div><div class="cs-stat"></div><div class="cs-stat"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="project-glow"></div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card reveal-up" data-tilt data-tilt-max="4" data-tilt-scale="1.01">
+          <div class="project-num">03</div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span>Web App</span><span>UI/UX</span><span>Interactive</span>
+            </div>
+            <h3 class="project-title">Time Capsule</h3>
+            <p class="project-desc">A beautifully crafted digital time capsule experience — write letters to the future, seal memories, and let time do the rest. Immersive, emotional, and unforgettable.</p>
+            <a href="https://arushjain3643.github.io/Time-capsule/" target="_blank" rel="noopener" class="project-link magnetic">
+              <span>Visit Website</span>
+              <svg viewBox="0 0 20 20" fill="none"><path d="M4 16L16 4M16 4H8M16 4v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+          <div class="project-preview">
+            <div class="project-screen">
+              <div class="screen-bar">
+                <span></span><span></span><span></span>
+                <div class="screen-url">arushjain3643.github.io/Time-capsule</div>
+              </div>
+              <div class="screen-body project-screen-3">
+                <div class="mock-nav-bar tc-nav">
+                  <div class="mock-nav-logo tc-logo"></div>
+                  <div class="mock-nav-links"><span></span><span></span><span></span></div>
+                  <div class="tc-nav-btn"></div>
+                </div>
+                <div class="tc-hero">
+                  <div class="tc-hero-left">
+                    <div class="tc-badge"></div>
+                    <div class="mock-h1 tc-h1"></div>
+                    <div class="mock-h2 tc-h2"></div>
+                    <div class="mock-h2 tc-h3"></div>
+                    <div class="tc-btns">
+                      <div class="tc-btn1"></div>
+                      <div class="tc-btn2"></div>
+                    </div>
+                  </div>
+                  <div class="tc-hero-right">
+                    <div class="tc-capsule-visual">
+                      <div class="tc-capsule-outer">
+                        <div class="tc-capsule-inner">
+                          <div class="tc-capsule-lock">🔒</div>
+                        </div>
+                      </div>
+                      <div class="tc-orbit tc-orbit-1"></div>
+                      <div class="tc-orbit tc-orbit-2"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tc-footer-row">
+                  <div class="tc-feature"></div>
+                  <div class="tc-feature"></div>
+                  <div class="tc-feature"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="project-glow"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ WHY PIXELNEST ═══════════════════════════ -->
+  <section class="why" id="why">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-tag reveal-up">Why Choose Us</div>
+        <h2 class="section-title reveal-up">The Pixelnest<br /><span class="grad-text">difference.</span></h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card glass reveal-up" data-tilt data-tilt-max="5">
+          <div class="why-icon">✦</div>
+          <h3>Unique Design</h3>
+          <p>Every pixel is custom. No templates, no shortcuts — just bespoke design crafted for your brand.</p>
+        </div>
+        <div class="why-card glass reveal-up" data-tilt data-tilt-max="5">
+          <div class="why-icon">◈</div>
+          <h3>Modern UI/UX</h3>
+          <p>Interfaces inspired by the best of Awwwards and Framer. Delightful and intuitive every time.</p>
+        </div>
+        <div class="why-card glass reveal-up" data-tilt data-tilt-max="5">
+          <div class="why-icon">⚡</div>
+          <h3>Fast Delivery</h3>
+          <p>Streamlined workflow means your project ships on time — without cutting corners on quality.</p>
+        </div>
+        <div class="why-card glass reveal-up" data-tilt data-tilt-max="5">
+          <div class="why-icon">◻</div>
+          <h3>Responsive Design</h3>
+          <p>Flawless experience on every device. Your site looks stunning whether on a phone or a 4K display.</p>
+        </div>
+        <div class="why-card glass reveal-up" data-tilt data-tilt-max="5">
+          <div class="why-icon">◎</div>
+          <h3>SEO Optimized</h3>
+          <p>Built-in best practices from day one — semantic structure, speed, and meta strategy that ranks.</p>
+        </div>
+        <div class="why-card glass reveal-up" data-tilt data-tilt-max="5">
+          <div class="why-icon">▲</div>
+          <h3>Smooth Performance</h3>
+          <p>Optimized code, compressed assets, and CDN-ready architecture. 90+ Lighthouse scores guaranteed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ PROCESS ═══════════════════════════ -->
+  <section class="process" id="process">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-tag reveal-up">How We Work</div>
+        <h2 class="section-title reveal-up">Our process,<br /><span class="grad-text">refined to perfection.</span></h2>
+      </div>
+      <div class="process-timeline">
+        <div class="process-line" id="processLine"></div>
+        <div class="process-steps">
+          <div class="process-step reveal-up">
+            <div class="step-dot"><span>01</span></div>
+            <div class="step-content glass">
+              <h3>Discovery</h3>
+              <p>Deep-dive into your brand, goals, audience and competition to build a clear strategic foundation.</p>
+            </div>
+          </div>
+          <div class="process-step reveal-up">
+            <div class="step-dot"><span>02</span></div>
+            <div class="step-content glass">
+              <h3>Planning</h3>
+              <p>Sitemaps, wireframes, and project roadmaps. We align completely before a single pixel is designed.</p>
+            </div>
+          </div>
+          <div class="process-step reveal-up">
+            <div class="step-dot"><span>03</span></div>
+            <div class="step-content glass">
+              <h3>Design</h3>
+              <p>High-fidelity Figma designs with motion concepts. You'll see exactly what we'll build before we build it.</p>
+            </div>
+          </div>
+          <div class="process-step reveal-up">
+            <div class="step-dot"><span>04</span></div>
+            <div class="step-content glass">
+              <h3>Development</h3>
+              <p>Clean, semantic, performance-focused code that brings the design to life with perfect precision.</p>
+            </div>
+          </div>
+          <div class="process-step reveal-up">
+            <div class="step-dot"><span>05</span></div>
+            <div class="step-content glass">
+              <h3>Launch</h3>
+              <p>Rigorous QA, cross-browser testing, and a smooth handoff. Then we go live and celebrate together.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ TESTIMONIALS ═══════════════════════════ -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-tag reveal-up">Client Love</div>
+        <h2 class="section-title reveal-up">Words from<br /><span class="grad-text">those we've served.</span></h2>
+      </div>
+      <div class="testi-slider" id="testiSlider">
+                <div class="testi-track" id="testiTrack">
+
+          <div class="testi-card glass">
+            <div class="testi-stars">★★★★★</div>
+            <p>"Pixelnest completely transformed our online presence. The site they built for us is not just beautiful — it actually converts. Our enquiries doubled in the first month."</p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background: linear-gradient(135deg, #7c3aed, #2563eb)">RK</div>
+              <div>
+                <strong>Rahul Kapoor</strong>
+                <span>CEO, Kapoor Enterprises</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testi-card glass">
+            <div class="testi-stars">★★★★★</div>
+            <p>"Working with Pixelnest was like having a world-class design team in-house. They understood our vision immediately and delivered something even better than we imagined."</p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background: linear-gradient(135deg, #0891b2, #7c3aed)">SP</div>
+              <div>
+                <strong>Sneha Patel</strong>
+                <span>Founder, StyleVault</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testi-card glass">
+            <div class="testi-stars">★★★★<span style="opacity:0.25">★</span></div>
+            <p>"The attention to detail is unreal. From the custom animations to the mobile responsiveness — everything is perfect. Our clients always compliment the website first."</p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background: linear-gradient(135deg, #059669, #2563eb)">AM</div>
+              <div>
+                <strong>Aditya Mehta</strong>
+                <span>Director, NovaTech Solutions</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testi-card glass">
+            <div class="testi-stars">★★★★★</div>
+            <p>"They delivered in half the time I expected and the quality was jaw-dropping. Pixelnest doesn't just build websites — they build experiences that win business."</p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background: linear-gradient(135deg, #dc2626, #7c3aed)">PV</div>
+              <div>
+                <strong>Priya Verma</strong>
+                <span>Marketing Head, FreshLeaf Organics</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testi-card glass">
+            <div class="testi-stars">★★★★<span style="opacity:0.25">★</span></div>
+            <p>"I was blown away by how well they captured our brand. The landing page they built for us gets compliments from every single customer. Worth every rupee and more."</p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background: linear-gradient(135deg, #f59e0b, #ef4444)">NS</div>
+              <div>
+                <strong>Nikhil Sharma</strong>
+                <span>Owner, Sharma Electronics</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testi-card glass">
+            <div class="testi-stars">★★★★★</div>
+            <p>"Our old website was embarrassing. Pixelnest gave us something we're genuinely proud to share. The smooth animations and clean layout make us look like a top-tier brand."</p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background: linear-gradient(135deg, #ec4899, #7c3aed)">DA</div>
+              <div>
+                <strong>Divya Agarwal</strong>
+                <span>Co-Founder, BloomBox India</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testi-card glass">
+            <div class="testi-stars">★★★★<span style="opacity:0.25">★</span></div>
+            <p>"Fast, responsive, and genuinely talented. They took my rough idea and turned it into a stunning website in under two weeks. The whole process was smooth and stress-free."</p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background: linear-gradient(135deg, #06b6d4, #059669)">KM</div>
+              <div>
+                <strong>Karan Malhotra</strong>
+                <span>Founder, SwiftServe Logistics</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testi-card glass">
+            <div class="testi-stars">★★★★★</div>
+            <p>"Pixelnest doesn't just design websites — they design trust. Our customers constantly tell us the website made them feel confident about buying from us. That's priceless."</p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background: linear-gradient(135deg, #7c3aed, #f59e0b)">RT</div>
+              <div>
+                <strong>Riya Tiwari</strong>
+                <span>Director, PureRoots Wellness</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="testi-nav">
+          <button class="testi-prev" id="testiPrev" aria-label="Previous">←</button>
+          <div class="testi-dots" id="testiDots"></div>
+          <button class="testi-next" id="testiNext" aria-label="Next">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ CONTACT ═══════════════════════════ -->
+  <section class="contact" id="contact">
+    <div class="contact-orb"></div>
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-left">
+          <div class="section-tag reveal-up">Let's Work Together</div>
+          <h2 class="section-title">Have a project<br /><span class="grad-text">in mind?</span></h2>
+          <p class="contact-desc">Tell us what you're building. We'll make it something worth talking about.</p>
+          <div class="contact-links">
+            <a href="https://mail.google.com/mail/?view=cm&to=pixelnest.1227@gmail.com&su=Project%20Enquiry%20via%20Pixelnest" target="_blank" rel="noopener" class="contact-link">
+              <div class="cl-icon">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M3 8l9 5.5L21 8M3 6h18a1 1 0 011 1v10a1 1 0 01-1 1H3a1 1 0 01-1-1V7a1 1 0 011-1z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <span>pixelnest.1227@gmail.com</span>
+            </a>
+            <a href="https://wa.me/919131817102" target="_blank" class="contact-link">
+              <div class="cl-icon">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="currentColor"/></svg>
+              </div>
+              <span>WhatsApp Us</span>
+            </a>
+          </div>
+        </div>
+        <div class="contact-right">
+          <form class="contact-form glass" id="contactForm">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" name="user_name" id="f_name" placeholder="Arjun Sharma" required />
+            </div>
+            <div class="form-group">
+              <label>Email or Mobile Number</label>
+              <input type="text" name="user_email" id="f_email" placeholder="hello@yourbrand.com or 9XXXXXXXXX" required />
+            </div>
+            <div class="form-group">
+              <label>Project Type <span style="opacity:0.5;font-size:0.8em;font-weight:400">(Optional)</span></label>
+              <select name="project_type" id="f_type">
+                <option value="">Select project type</option>
+                <option>Website Design</option>
+                <option>Business Website</option>
+                <option>Landing Page</option>
+                <option>UI/UX Design</option>
+                <option>Branding</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Tell us about your project <span style="opacity:0.5;font-size:0.8em;font-weight:400">(Optional)</span></label>
+              <textarea rows="4" name="message" id="f_message" placeholder="Describe your idea, goals, timeline..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary full-w magnetic">
+              <span class="btn-inner">Send Message →</span>
+              <span class="btn-glow"></span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-noise"></div>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo footer-logo">
+            <span class="logo-px">Pixel</span><span class="logo-nest">nest</span>
+          </a>
+          <p>We build digital experiences<br />that feel premium.</p>
+        </div>
+        <div class="footer-links-group">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Website Design</a></li>
+            <li><a href="#services">UI/UX Design</a></li>
+            <li><a href="#services">Branding</a></li>
+            <li><a href="#services">Landing Pages</a></li>
+            <li><a href="#services">SEO</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="https://mail.google.com/mail/?view=cm&to=pixelnest.1227@gmail.com&su=Project%20Enquiry%20via%20Pixelnest" target="_blank" rel="noopener">Email Us</a></li>
+            <li><a href="https://wa.me/919131817102" target="_blank">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Pixelnest. All rights reserved.</p>
+        <p>Crafted with obsession by <span class="grad-text">Pixelnest</span></p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Floating Action Buttons -->
+  <div class="fab-stack">
+    <a href="tel:+919131817102" class="fab fab-call" aria-label="Call us">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+      </svg>
+      <span class="fab-tooltip">Call Us</span>
+    </a>
+    <a href="https://wa.me/919131817102" target="_blank" class="fab fab-wa" aria-label="WhatsApp us">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      <span class="fab-tooltip">WhatsApp</span>
+    </a>
+  </div>
+
+  <!-- Form success toast -->
+  <div class="toast" id="toast">Message sent! We'll be in touch soon ✦</div>
+
+  <script src="script.js"></script>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    const EMAILJS_PUBLIC_KEY  = 'RTLTtVtB8azc41-Ed';
+    const EMAILJS_SERVICE_ID  = 'service_13c38yd';
+    const EMAILJS_TEMPLATE_ID = 'template_11cd0x5';
+
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const btn   = this.querySelector('button[type="submit"]');
+      const inner = btn.querySelector('.btn-inner');
+      const toast = document.getElementById('toast');
+
+      const name    = document.getElementById('f_name').value.trim();
+      const email   = document.getElementById('f_email').value.trim();
+      const type    = document.getElementById('f_type').value || 'Not specified';
+      const message = document.getElementById('f_message').value.trim() || 'No message provided';
+
+      inner.textContent = 'Sending…';
+      btn.disabled = true;
+
+      // ── 1. Send via EmailJS to Gmail ──────────────────────────────
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        user_name: name,
+        user_email: email,
+        project_type: type,
+        message: message
+      })
+      .then(() => {
+        inner.textContent = 'Sent! ✦';
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 4000);
+        document.getElementById('contactForm').reset();
+      })
+      .catch(err => {
+        console.error('EmailJS error:', err);
+        inner.textContent = 'Send Message →';
+      })
+      .finally(() => {
+        setTimeout(() => {
+          inner.textContent = 'Send Message →';
+          btn.disabled = false;
+        }, 4000);
+      });
+
+      // ── 2. Also send to WhatsApp as backup ────────────────────────
+      const waText = encodeURIComponent(
+        `📩 *New Project Enquiry*\n\n` +
+        `👤 *Name:* ${name}\n` +
+        `📧 *Email / Mobile:* ${email}\n` +
+        `🛠 *Project Type:* ${type}\n` +
+        `💬 *Message:* ${message}`
+      );
+      const waLink = document.createElement('a');
+      waLink.href = `https://wa.me/919131817102?text=${waText}`;
+      waLink.target = '_blank';
+      waLink.rel = 'noopener';
+      document.body.appendChild(waLink);
+      waLink.click();
+      document.body.removeChild(waLink);
+    });
+  </script>
+</body>
+</html>
